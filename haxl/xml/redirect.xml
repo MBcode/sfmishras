@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC
+          "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Epetial</title>
+  </head>
+
+  <body>
+    <p>Redirecting to <a id="redirect-target">target</a>. Please follow the
+       link manually if automatic redirection does not work.</p>
+  </body>
+</html>

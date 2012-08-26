@@ -1,0 +1,72 @@
+		  FReT: Framework for Regression Testing
+		  --------------------------------------
+
+FReT is a software package intended for helping with the development and
+execution of test suites for Common Lisp software. The longer term goal is
+to implement mechanisms for:
+
+1. Defining test suites and test cases. The API for this has been inspired
+   by LIFT, though the names and syntax have been changed a little. If you
+   are porting tests from LIFT, a syntactic transformation is all you will
+   need. TODO: Site Gary Warren King's LIFT.
+
+2. Writing and reading test cases. Any test case or test suite authored in
+   FReT should be easy to read and write from some storage. The most likely
+   storage location is going to be the file system, but it is easy to build
+   an abstraction that will support more. So we should have it. The storage
+   policy should be easy to hook into a system definition facility.
+
+3. Managing test cases. At the very minimum, FReT should have a console UI
+   capable of operating on existing test suites and test cases. The list of
+   operations should include add, delete, rearrange, modify, inspect, etc.
+
+4. Running tests. FReT should be able to run test cases both as part of the
+   development process, and off-line. The execution of test cases should
+   tie in nicely with a system definition facility.
+
+5. Historical analysis. FReT should support the analysis of test runs over
+   time, giving the programmer some insight into the development process
+   itself.
+
+Ultimately, FReT should be able to provide a software testing environment
+that is robust, complete, easy to use, and extensible. There will have to
+be tradeoffs made along the way, but with the Lisp language as a starting
+point this end goal should be quite feasible.
+
+
+
+Present Status
+
+At present, we have implemented the test suite and test case definitions,
+and the basic operations for reading and writing test cases to file. The
+goal is to bring FReT into a real working environment ASAP. I believe the
+most critical features for this are:
+
+1. The definition of test suites and test cases.
+
+2. The on-line execution of test suites and test cases.
+
+3. The reading and writing of test suites.
+
+4. The ability to tie in the reading and writing of test suites with system
+   definition facilities.
+
+All four of these are now implemented. The next step is to use FReT in a
+real project, with the goal of fixing bugs and ensuring the system is
+usable as intended. This will lead to a 1.0 release.
+
+
+
+Where on the WWW is FReT?
+
+http://www.sfmishras.com/smishra/fret/
+
+
+
+More Information
+
+Please see the docs/ subdirectory for additional documentation.
+
+$Id$
+
+--- EOF

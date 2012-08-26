@@ -1,0 +1,65 @@
+2002-02-25  Sunil Mishra  <smishra@speakeasy.net>
+
+	* test.lisp: Added rules for testing segment matcher, and cases
+	for testing the trace facility.
+
+	* rule-engine.lisp: Added rule tracing.
+
+	* rule-compiler.lisp: Added functions for two-pass compilation of
+	meta.lisp. This ensures that the compilation rules are compiled,
+	in the right order, by rules defined through compilation rules. We
+	now have truly meta-circular compiled rules.
+
+	* meta.lisp (segment-compiler): Added segment variable compilation
+	rule.
+
+2001-03-21  Sunil Mishra  <smishra@firstworld.net>
+
+	* rule-engine.lisp (get-encoder): Renamed from deep-car. Now
+	requires that the encoder be a symbol.
+
+	* defs.lisp: Moved rule and ruleset structures here from
+	rule-engine.lisp, and added printers.
+
+2001-03-19  Sunil Mishra  <smishra@everest.com>
+
+	* rule-compiler.lisp: Added explicit definition of external rule
+	compiler ruleset.
+	(%subrule-form): Missed comma substitution.
+
+	* meta.lisp (with-compilation): Improper handling of solve
+	results. Solve returns only one value.
+
+2001-03-19  Sunil Mishra  <smishra@firstworld.net>
+
+	* rule-engine.lisp (solve): Added arguments for better controlling
+	solve fail behavior.
+
+	* meta.lisp (with-compilation): Added macro to facilitate
+	sub-expression compilation.
+
+2001-03-06  Sunil Mishra  <smishra@firstworld.net>
+
+	* Added documentation.
+	
+	* rule-engine.lisp (store-rule): Now stores documentation
+	strings.
+
+	* rule-compiler.lisp: :|rule-compiler| rulesent renamed as
+	:|internal-rule-compiler|. Added :|external-rule-compiler| ruleset
+	which takes precedence over :|internal-rule-compiler| while
+	compiling.
+	(compile-rule): Introduction of more careful body parsing to
+	detect documentation strings.
+
+	* meta.lisp: Modified to define rules in :|internal-rule-compiler|
+	rather than use DEFRULE-COMPILE.
+
+	* packages.lisp (:mcpat): Eliminated export of ?is, added
+	defrule-compile.
+
+	* Updated all package and system refrences from XTE to MCPAT.
+
+	* Initial branch from XTE package.
+	
+EOF

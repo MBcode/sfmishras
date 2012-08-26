@@ -1,0 +1,36 @@
+/sf/public> cat note
+http://www.sfmishras.com/smishra 
+λ▶<142 a24daedalus: /sf/public> ll
+total 848
+drwxr-xr-x  5 bobak     170 May 10  2009 cl-wiki/
+lrwxr-xr-x  1 bobak      31 Sep  4  2011 cl-wiki-tests.asd@ -> cl-wiki/trunk/cl-wiki-tests.asd
+lrwxr-xr-x  1 bobak      25 Sep  4  2011 cl-wiki.asd@ -> cl-wiki/0.3.1/cl-wiki.asd
+drwxr-xr-x  5 bobak     170 May 26  2009 cl-wise/
+lrwxr-xr-x  1 bobak      31 Sep  4  2011 cl-wise-tests.asd@ -> cl-wise/trunk/cl-wise-tests.asd
+lrwxr-xr-x  1 bobak      25 Sep  4  2011 cl-wise.asd@ -> cl-wise/trunk/cl-wise.asd
+drwxr-xr-x  4 bobak     136 May 10  2009 closet3/
+lrwxr-xr-x  1 bobak      25 Sep  4  2011 closet3.asd@ -> closet3/trunk/closet3.asd
+drwxr-xr-x  6 bobak     204 May 12  2009 clover/
+lrwxr-xr-x  1 bobak      23 Sep  4  2011 clover.asd@ -> clover/trunk/clover.asd
+drwxr-xr-x  9 bobak     306 May 26  2009 fret/
+lrwxr-xr-x  1 bobak      22 Sep  4  2011 fret-test.asd@ -> fret/0.4/fret-test.asd
+lrwxr-xr-x  1 bobak      19 Sep  4  2011 fret.asd@ -> fret/0.3.1/fret.asd
+drwxr-xr-x  4 bobak     136 May 10  2009 haxl/
+lrwxr-xr-x  1 bobak      19 Sep  4  2011 haxl.asd@ -> haxl/trunk/haxl.asd
+-rw-r--r--  1 bobak     628 Apr 23  2009 index.html
+-rw-r--r--  1 bobak  356604 Jan 20  2010 j20
+-rw-r--r--  1 bobak     722 Jan 20  2010 la
+-rw-r--r--  1 bobak     584 Jan 20  2010 la~
+drwxr-xr-x  5 bobak     170 May 10  2009 mcpat/
+lrwxr-xr-x  1 bobak      19 Sep  4  2011 mcpat.asd@ -> mcpat/2.0/mcpat.asd
+-rw-r--r--  1 bobak      34 Oct  9  2010 note
+drwxr-xr-x  4 bobak     136 May 10  2009 scoli/
+lrwxr-xr-x  1 bobak      21 Sep  4  2011 scoli.asd@ -> scoli/trunk/scoli.asd
+drwxr-xr-x  4 bobak     136 May 10  2009 wilbur/
+lrwxr-xr-x  1 bobak      21 Sep  4  2011 wilbur.asd@ -> wilbur/0.0/wilbur.asd
+drwxr-xr-x  5 bobak     170 May 10  2009 xl-wiki/
+lrwxr-xr-x  1 bobak      31 Sep  4  2011 xl-wiki-tests.asd@ -> xl-wiki/trunk/xl-wiki-tests.asd
+lrwxr-xr-x  1 bobak      25 Sep  4  2011 xl-wiki.asd@ -> xl-wiki/trunk/xl-wiki.asd
+λ▶<143 a24daedalus: /sf/public>  
+I could also pull from these old snapshots of the site.
+ 

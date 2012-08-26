@@ -1,0 +1,42 @@
+;;; -*- Mode: Lisp; Package: COMMON-LISP-USER -*-
+
+;;; $Id$
+
+#||
+Copyright (c) 2006, Sunil Mishra
+All rights reserved.
+||#
+
+(in-package "COMMON-LISP-USER")
+
+(defpackage "HAXL"
+  (:use "COMMON-LISP")
+  (:export "*XHTML-NS-STRING*"
+	   "ACCESS-PATH"
+	   "ADD-CONFIGURATION-DIRECTORY"
+	   "CHILD"
+	   "COPY-TEMPLATE"
+	   "COPY-DOCUMENT-XML"
+	   "CREATE-XHTML-ELEMENT"
+	   "CURRENT-NODE"
+	   "DESCENDENT"
+	   "DO-XML-DOCUMENT"
+	   "FILL-NODE"
+	   "FIND-DOCUMENT-XML"
+	   "INITIALIZE-HAXL"
+	   "MAKE-CONFIGURATION"
+	   "READ-DOCUMENT-DIRECTORY"
+	   "REMOVE-ELEMENT"
+	   "REPLACE-WITH-IMPORTED-ELEMENT"
+	   "SET-ATTRIBUTE"
+	   "SET-OR-INSERT-TEXT"
+	   "SET-STYLE"
+	   "SET-TEXT"
+	   "TEXT"
+	   "WITH-XML"
+	   "WITH-XML-TEMPLATE"
+	   "WRITE-FORM-DOCUMENT-XML"
+	   "WRITE-REDIRECT-XML"
+	   "WRITE-XML"))
+
+;;; EOF

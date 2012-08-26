@@ -1,0 +1,122 @@
+2009-03-27  Sunil Mishra  <smishra@sfmishras.com>
+
+	* ntriple.lisp (stringify): If the input is a string, just return
+	it.
+
+2009-03-26  Sunil Mishra  <smishra@sfmishras.com>
+
+	* package.lisp ("SCOLI"): Exported repository-store.
+
+2009-02-28  Sunil Mishra  <smishra@sfmishras.com>
+
+	Implemented storing content into the repository. Refactored code
+	to more cleanly express the process of storing content.
+	
+	* sesame.lisp (default-sesame-content-language): Renamed from
+	default-sesame-response-language.
+	(sesame-connection): Renamed slot response-language to
+	content-language.
+	(url-for-request-type): Modified to construct full URL, applying
+	arguments to the request URL. Added an args argument for this
+	purpose. This simplifies the use of this function elsewhere.
+	(language-string): Renamed from query-language-string.
+	(language-mime-type): Renamed from response-language-string,
+	reflecting the generalization of the use of this function.
+	(sesame-request): Changed function signature to give more
+	flexibility in argument patterns. This was to support the POST
+	method through this function.
+	((parse-response (sesame-connection (eql :null) t ...))): Added.
+	((repository-query (sesame-connection string ...)))
+	((repository-retrieve (sesame-connection ...))):
+	Renamed	argument response-language to content-language.
+	(repository-store): Added.
+	
+2009-02-25  Sunil Mishra  <smishra@sfmishras.com>
+
+	Implemented queries via the statement URI to the sesame triple
+	store. Added the required minimal ntriples support for this task.
+	
+	* package.lisp ("SCOLI"): Exported symbols.
+	("NTRIPLE"): Added package.
+
+	* sesame.lisp (+sesame-operations+): Added statements URI.
+	(repository-retrieve): Added.
+
+	* ntriple.lisp: Added.
+
+	* scoli.asd (scoli): Added file ntriple.lisp.
+
+2009-02-23  Sunil Mishra  <smishra@sfmishras.com>
+
+	Incorporation of cl-rdfxml to parse rdf responses from sesame. In
+	response to sparql queries, sesame produces rdf, so the default
+	response type for sesame has been changed to rdf.
+
+	* sesame.lisp (default-sesame-response-language): Change value to
+	:rdfxml.
+	((response-language-string (sesame-connection t))): Change :rdf to
+	:rdfxml.
+	((parse-response :around (sesame-connection t string ...))): Added
+	placeholder for future error checking.
+	((parse-response (sesame-connection (eql :rdfxml) t ...))): Added.
+
+	* scoli.asd (scoli): Incorporate cl-rdfxml.
+
+2009-02-21  Sunil Mishra  <smishra@sfmishras.com>
+
+	Made repository queries operational, though response parsing isn't
+	yet implemented.
+	
+	* sesame.lisp (default-sesame-response-language): Added.
+	(sesame-connection): Added slot response-language.
+	((query-language-string (sesame-connection (eql :default))):
+	Added.
+	((response-language-string (sesame-connection (eql :default))):
+	Added.
+	((response-language-string (sesame-connection t)): Added
+	translation for :rdf format.
+	((repository-query (sesame-connection string &rest args ...): 
+	Include infer-p and bindings in query. Make response-language
+	handling symmetric to query-language handling.
+
+2009-02-19  Sunil Mishra  <smishra@sfmishras.com>
+
+	Implemented much improved request marshalling and sparql
+	unmarshalling. Repository retrieval now based on this new
+	infrastructure.
+
+	* sesame.lisp: Removed previously #+ignore'd top level forms.
+	(+sesame-operations+): Added URL pattern for query.
+	(default-sesame-query-language): Added.
+	(sesame-connection): Added repository and query language slots.
+	(+whitespace-chars+, whitespace-char-p, whitespace-string-p):
+	(tree-remove-whitespace-strings): Added.
+	(sesame-request): Added sending of parameters.
+	(+sparql-namespace+, +xsd-boolean+, +xsd-string+): Added.
+	(parser-for-repositories-response): Removed.
+	(sparql-parse-variables, sparql-xmls-for-tag-p): Added.
+	(sesame-sparql-xml): Removed.
+	(sparql-parse-literal-xmls): Added.
+	(sparql-gather-values-from-result-xmls): Added.
+	(query-language-string, response-language-string): Added.
+	(sesame-request, parse-response): Added.
+	((get-repositories (sesame-connection))): Employ more systematic
+	sparql parsing.
+	(connect-sesame, get-protocol): Added.
+	(repository-query): Added, but not yet tested.
+
+	* scoli.asd (scoli): Fixed license. Added more metadata.
+
+2009-02-11  Sunil Mishra  <smishra@sfmishras.com>
+
+	Initial checkin. Implements protocol version and repositories
+	request for sesame.
+
+	* scoli.asd: Added.
+
+	* package.lisp: Added.
+
+	* sesame.lisp: Added.
+
+---- Start of Project ----
+	

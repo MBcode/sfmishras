@@ -1,0 +1,35 @@
+* Test object modification should be recorded in storage objects, not the
+  global data table.
+
+* Modifiers for test scripts.
+
+* Modifiers for test cases.
+
+* Some version of result printer that can take explicit parameters.
+
+* Version 0.5.
+
+* Add a procedure MODIFY-SUITE to change a suite definition, such as the
+  :SETUP or :TEARDOWN.
+
+* Add a postponment option when writing test cases to file.
+
+* Add a query loop for soliciting test case names from the user for tests
+  that had been automatically named.
+
+* ENSURE-TYPE should be generalized to test the return types of multiple
+  values.
+
+* Add an option to set an interrupt time.
+
+* Add an option to disable a test.
+
+* Test result archiving.
+
+* Batch (off-line) runs of a test suite should compile the test files and
+  the test bodies therein. The bodies needn't be enclosed in functions and
+  generated on the fly.
+
+* Assissted testing.
+
+* Test recording?

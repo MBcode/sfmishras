@@ -1,0 +1,116 @@
+2008-12-16  Sunil Mishra  <smishra@sfmishras.com>
+
+	Merged in changes from cl-wiki to xl-wiki, and changed all
+	cl-wiki references to xl-wiki. Also updated the license and
+	readme.
+	
+2008-12-12  Sunil Mishra  <smishra@sfmishras.com>
+
+	Test suite added for cl-wiki.
+	
+	* test/wiki-test-script.lisp: Added.
+	(translation-tests): Added.
+	(wiki-test-script): Added.
+
+	* cl-wiki-tests.asd: Added.
+
+2008-11-14  Sunil Mishra  <smishra@sfmishras.com>
+
+	Three changes to support wiki extension: improvements in
+	specifying the wiki class while starting the wiki, export symbols
+	related to the extension API, and name the rewrites so that they
+	can be easily manipulated.
+	
+	* wiki.lisp (reinit): Now updates the wiki server class to that
+	provided in wiki configuration. Adds argument class-override-p.
+	(init): Adds argument class-override-p.
+	(start): Considers whether a class was explicitly supplied when
+	instantiating wiki.
+
+	* packages.lisp (#:cl-wiki): Exported functions related to
+	extension API.
+
+	* codes.lisp (make-rep-url-encoder): Higher order generator that
+	replaces rep-url-encoder-1.
+	(pre-escape-rewrites, post-escape-rewrites): Rewrites are now
+	named so that alternate wikis can provide their custom rules more
+	easily. The link patterns now use make-rep-url-encoder.
+	((rewrite (wiki t string))): Updated for changes to
+	pre-escape-rewrites and post-escape-rewrites.
+
+2008-10-25  Sunil Mishra  <smishra@sfmishras.com>
+
+	Redid the wiki code translation in terms of generic functions such
+	that wiki codes can provide context for the interpretation of
+	other wiki codes. Also moved wiki.conf to the source directory and
+	added support for specifying paths relative to the wiki.conf.
+	
+	* codes.lisp (pre-escape-rewrites): *unescaped-replace-list*
+	content defined as a GF to support customization.
+	(post-escape-rewrites): Replaces *replace-list* to support
+	customization. Also eliminated dropping <br> tags.
+	(*translate-context*): Added.
+	(reconstitute): Added.
+	(rewrite): Added in place of translate-wiki-codes.
+	(segment): Added.
+	(make-translate-context): Added.
+	((translate (wiki t)): Rewritten in terms of *translate-context*,
+	segment, rewrite, reconstitute.
+
+	* defs.lisp (*wiki-software-directory*): Defined.
+
+	* wiki.lisp (config-pathname): Added.
+	(read-config): Factored out configuration file pathname computation.
+	(string-to-directory-pathname): Ensure the return value is an
+	absolute pathname by merging it into *wiki-software-directory*.
+	(reinit): Change call to read-config.
+
+2008-10-14  Sunil Mishra  <smishra@sfmishras.com>
+
+	Convert some additional functions to generic functions. Move key
+	definitions in wiki.lisp to defs.lisp. Minor change to fix a
+	warning in encode-for-pre.lisp.
+	
+	* wiki.lisp (save, execute-main-template, edit, display):
+	Converted to generic functions.
+
+	* encode-for-pre.lisp (encode-for-tt): Account for implementations
+	where #\Newline is the same as #\Linefeed. The change suppresses a
+	warning signaled in Clozure CL.
+
+	* codes.lisp (translate): Convert to generic function.
+
+	* cl-wiki.asd (#:cl-wiki): Add file defs.lisp.
+
+	* defs.lisp (*wiki-port*, *wiki-directory*)
+	(*wiki-template-directory*, *wiki-page-list*, *wiki-home-page*)
+	(*behind-proxy-p*, *page-index*, *edit-textarea-size*)
+	(*wiki-server*, *emb-lock*, *page-index-lock*, wiki): New file to
+	hold the variable and class definitions from wiki.lisp.
+
+2008-10-13  Sunil Mishra  <smishra@sfmishras.com>
+
+	* templates/main.template: Simplify title text, and remove top
+	line of navigation links. These are all unnecessary.
+
+2008-10-13  Sunil Mishra  <smishra@sfmishras.com>
+
+	Basic extensions via CLOS by introducing a base wiki class.
+	
+	* wiki.lisp (*wiki-server*): Updated documentation to reflect new
+	role.
+	(wiki): Added.
+	(wiki): Made primary call handler a generic function that takes
+	server as argument.
+	(reinit): Was previously named init, now takes a server
+	argument. Server is passed to the default Hunchentoot dispatcher.
+	(init): A new function that performs a very different task from
+	the previous function. It creates the wiki instance and calls
+	reinit.
+	(start): Add a class argument, insert a check for existence of
+	server, remove check at start time for wiki directory. Set the
+	HTTP server into a field of the server instance.
+	(stop): Retrieve server from field of server instance. Unset the
+	server instance.
+
+---- Start of ChangeLog ----

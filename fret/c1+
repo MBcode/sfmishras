@@ -1,0 +1,404 @@
+/fret/trunk> scl
+STYLE-WARNING:
+   redefining ASDF:PERFORM :AROUND (#<STANDARD-CLASS ASDF:LOAD-OP>
+                                    #<STANDARD-CLASS ASDF:CL-SOURCE-FILE>) in DEFMETHOD
+USER(1): (al 'fret)
+
+; loading system definition from
+; /Users/bobak/Downloads/lang/lsp/ai/sw/sf/public/fret/trunk/fret.asd into
+; #<PACKAGE "ASDF0">
+; registering #<SYSTEM FRET {11E293D9}> as FRET
+
+; compiling file "/Users/bobak/Downloads/lang/lsp/ai/sw/sf/public/fret/trunk/src/package.lisp" (written 07 OCT 2007 03:12:38 PM):
+; compiling (IN-PACKAGE #:COMMON-LISP-USER)
+; compiling (DEFPACKAGE #:FRET ...)
+; compiling (LET (# #) ...)
+
+; /Users/bobak/Downloads/lang/lsp/ai/sw/sf/public/fret/trunk/src/package.fasl written
+; compilation finished in 0:00:00
+; compiling file "/Users/bobak/Downloads/lang/lsp/ai/sw/sf/public/fret/trunk/src/test-framework.lisp" (written 06 OCT 2007 10:08:42 PM):
+; compiling (IN-PACKAGE #:FRET)
+; compiling (DEFVAR +SUITE-VAR+ ...)
+; compiling (DEFVAR +ENSURE-BODY-VAR+ ...)
+; compiling (DECLAIM (SPECIAL *CURRENT-TEST*))
+; compiling (DEFINE-CONDITION FAILED-ENSURE ...)
+; compiling (DEFINE-CONDITION SLOT-REQUIRED ...)
+; compiling (DEFUN ERROR-REQUIRED ...)
+; compiling (DEFVAR *TEST-STACK* ...)
+; compiling (DEFUN COERCE-TO-CLASS ...)
+; compiling (DEFUN COERCE-TO-CLASS-NAME ...)
+; compiling (DEFUN UNUSE-TEST ...)
+; compiling (DEFUN LAST-TEST ...)
+; compiling (DEFUN USE-TEST ...)
+; compiling (DEFUN ROTATE-FORWARD ...)
+; compiling (DEFUN ROTATE-BACKWARD ...)
+; compiling (DEFUN NEXT-TEST ...)
+; compiling (DEFUN PREVIOUS-TEST ...)
+; compiling (DEFUN NEXT-MATCHING-TEST ...)
+; compiling (DEFUN PREVIOUS-MATCHING-TEST ...)
+; compiling (DEFUN FIND-DISCONNECTED-CLASS-SUBTREE ...)
+; compiling (DEFUN GET-CLASS-PRECEDENCE-LIST ...)
+; compiling (DEFMACRO DEFENSURE ...)
+; compiling (DEFENSURE ENSURE ...)
+; compiling (DEFENSURE ENSURE-CONDITION ...)
+; compiling (DEFMACRO ENSURE-WARNING ...)
+; compiling (DEFMACRO ENSURE-ERROR ...)
+; compiling (DEFENSURE ENSURE-COMPARE ...)
+; compiling (DEFMACRO ENSURE-EQUAL ...)
+; compiling (DEFENSURE ENSURE-TYPE ...)
+; compiling (DEFUN SUCCEED ...)
+; file: /Users/bobak/Downloads/lang/lsp/ai/sw/sf/public/fret/trunk/src/test-framework.lisp
+; in: DEFMACRO DEFENSURE
+;     'FRET:FAILED-ENSURE
+; 
+; note: deleting unreachable code
+
+; compiling (DEFUN FAIL ...)
+; compiling (DEFUN MAKE-QUEUE ...)
+; compiling (DEFUN QUEUE-EMPTY-P ...)
+; compiling (DEFUN QUEUE-SINGLETON-P ...)
+; compiling (DEFUN QUEUE-PUSH ...)
+; compiling (DEFUN QUEUE-POP ...)
+; compiling (DECLAIM (SPECIAL *DEPENDENCE-QUEUE-ID* ...))
+; compiling (DEFUN EXECUTE-DEPENDENCE-QUEUE ...)
+; compiling (DEFUN RECORD-DEPENDENCE ...)
+; compiling (DEFSTRUCT HOOK ...)
+; compiling (DEFVAR *HOOK-LIST* ...)
+; compiling (DEFVAR +ARGLIST-KEYWORDS+ ...)
+; compiling (DEFUN FIND-HOOK ...)
+; compiling (DEFUN ENSURE-SIMPLE-ARGLIST ...)
+; compiling (DEFUN ARGLISTS-CONGRUENT-P ...)
+; compiling (DEFUN CREATE-HOOK ...)
+; compiling (DEFUN GET-FUNCTION-ARGUMENTS ...)
+; compiling (DEFUN CHECK-HOOK-FUNCTION-ARGUMENTS ...)
+; compiling (DEFUN HOOK-ADD ...)
+; compiling (DEFUN HOOK-REMOVE ...)
+; compiling (DEFUN HOOK-RUN ...)
+; compiling (DEFMACRO DEFINE-HOOK ...)
+
+; /Users/bobak/Downloads/lang/lsp/ai/sw/sf/public/fret/trunk/src/test-framework.fasl written
+; compilation finished in 0:00:00
+; compiling file "/Users/bobak/Downloads/lang/lsp/ai/sw/sf/public/fret/trunk/src/test-output.lisp" (written 05 OCT 2007 05:58:52 PM):
+; compiling (IN-PACKAGE #:FRET)
+; compiling (DEFVAR +VERBOSITY-LEVELS+ ...)
+; compiling (DEFVAR *TEST-VERBOSITY* ...)
+; compiling (DEFVAR *TEST-PRINT-LENGTH* ...)
+; compiling (DEFVAR *TEST-PRINT-LEVEL* ...)
+; compiling (DEFVAR *TEST-OUTPUT* ...)
+; compiling (DEFCLASS TEST-OUTPUT-MIXIN ...)
+; compiling (DEFMETHOD INITIALIZE-INSTANCE ...)
+; compiling (DEFMACRO WITH-OUTPUT-PARAMETERS ...)
+; compiling (DEFUN CHECK-VERBOSITY-THRESHOLD ...)
+; compiling (DEFUN OUT ...)
+; compiling (DEFUN FINE ...)
+; compiling (DEFUN NORMAL ...)
+; compiling (DEFUN SEVERE ...)
+; compiling (DEFUN RUNNING ...)
+; compiling (DEFUN RUNNING2 ...)
+; compiling (DEFUN MESSAGE ...)
+
+; /Users/bobak/Downloads/lang/lsp/ai/sw/sf/public/fret/trunk/src/test-output.fasl written
+; compilation finished in 0:00:00
+; compiling file "/Users/bobak/Downloads/lang/lsp/ai/sw/sf/public/fret/trunk/src/defs.lisp" (written 24 JAN 2007 03:56:50 PM):
+; compiling (IN-PACKAGE #:FRET)
+; compiling (DEFVAR *TEST-BREAK-ON-ERRORS* ...)
+; compiling (DEFCLASS TEST-OBJECT ...)
+; compiling (DEFCLASS TEST-RESULT ...)
+; compiling (DEFCLASS TEST-RUNNER ...)
+; compiling (DEFCLASS TEST-SUITE ...)
+; compiling (DEFCLASS TEST-SCRIPT ...)
+; compiling (DEFCLASS TEST-CASE ...)
+; compiling (DEFCLASS DELETED-TEST-OBJECT ...)
+; compiling (DEFCLASS DELETED-TEST-SCRIPT ...)
+; compiling (DEFCLASS DELETED-TEST-SUITE ...)
+; compiling (DEFCLASS DELETED-TEST-CASE ...)
+; compiling (DEFMETHOD UPDATE-INSTANCE-FOR-REDEFINED-CLASS ...)
+; compiling (DEFGENERIC TEST-CASE-DEFINING-SUITE ...)
+; compiling (DEFGENERIC GET-SUITE-SLOT-NAMES ...)
+; compiling (DEFGENERIC GET-SUITE-SLOT-DEFINITIONS ...)
+; compiling (DEFGENERIC GET-SUITE-CLASS-OPTIONS ...)
+; compiling (DEFGENERIC DELETE-TEST-FROM-STORAGE ...)
+; compiling (DEFGENERIC TEST-SCRIPT-SETUP-BODY ...)
+; compiling (DEFGENERIC TEST-SCRIPT-TEARDOWN-BODY ...)
+; compiling (DEFGENERIC RUN-SETUP ...)
+; compiling (DEFGENERIC RUN-TEARDOWN ...)
+; compiling (DEFGENERIC TEST-SCRIPT-STEPS ...)
+; compiling (DEFGENERIC (SETF TEST-SCRIPT-STEPS) ...)
+; compiling (DEFMACRO DEFINE-TEST-OBJECT-PREDICATE ...)
+; compiling (DEFMACRO DEFINE-HISTORY-BROWSERS ...)
+; compiling (DEFVAR *TEST-OBJECT-DATA* ...)
+; compiling (DEFSTRUCT (TEST-OBJECT-DATA #))
+; compiling (DEFUN GET-TEST-OBJECT-DATA ...)
+; compiling (DEFUN NEW-TEST-OBJECT-DATA ...)
+; compiling (DEFUN REMOVE-TEST-OBJECT-DATA ...)
+; compiling (DEFUN GET-TEST-OBJECT-PROPERTY ...)
+; compiling (DEFUN SET-TEST-OBJECT-PROPERTY ...)
+; compiling (DEFSETF GET-TEST-OBJECT-PROPERTY ...)
+; compiling (DEFSTRUCT (TEST-SUITE-DATA # ...) ...)
+; compiling (DEFUN GET-TEST-SUITE-DATA ...)
+; compiling (DEFUN NEW-TEST-SUITE-DATA ...)
+; compiling (DEFUN REMOVE-TEST-SUITE-DATA ...)
+; compiling (DEFUN GET-TEST-SUITE-PROPERTY ...)
+; compiling (DEFUN SET-TEST-SUITE-PROPERTY ...)
+; compiling (DEFSETF GET-TEST-SUITE-PROPERTY ...)
+; compiling (DEFUN INCREMENT-CASE-SEQUENCE ...)
+; compiling (DEFUN GET-CASE-SEQUENCE ...)
+; compiling (DEFUN GET-SUITE-SETUP ...)
+; compiling (DEFUN SET-SUITE-SETUP ...)
+; compiling (DEFSETF GET-SUITE-SETUP ...)
+; compiling (DEFUN GET-SUITE-TEARDOWN ...)
+; compiling (DEFUN SET-SUITE-TEARDOWN ...)
+; compiling (DEFSETF GET-SUITE-TEARDOWN ...)
+; compiling (DEFUN GET-SUITE-FIXTURE ...)
+; compiling (DEFUN SET-SUITE-FIXTURE ...)
+; compiling (DEFSETF GET-SUITE-FIXTURE ...)
+; compiling (DEFUN GET-SUITE-DIRECT-CASES ...)
+; compiling (DEFUN SET-SUITE-DIRECT-CASES ...)
+; compiling (DEFSETF GET-SUITE-DIRECT-CASES ...)
+; compiling (DEFINE-HOOK TEST-DEFINITION-HOOK ...)
+; compiling (DEFINE-HOOK TEST-DELETION-HOOK ...)
+
+; /Users/bobak/Downloads/lang/lsp/ai/sw/sf/public/fret/trunk/src/defs.fasl written
+; compilation finished in 0:00:00
+; compiling file "/Users/bobak/Downloads/lang/lsp/ai/sw/sf/public/fret/trunk/src/test-object.lisp" (written 24 JAN 2007 03:56:50 PM):
+; compiling (IN-PACKAGE #:FRET)
+; compiling (DEFINE-TEST-OBJECT-PREDICATE TEST-OBJECT)
+; compiling (DEFUN GET-TEST-OBJECT-PROTOTYPE ...)
+; compiling (DEFUN CHECK-TRANSITION ...)
+; compiling (DEFUN STATE-TRANSITION ...)
+; compiling (DEFUN RUNNING-P ...)
+; compiling (DEFUN FINISHED-P ...)
+; compiling (DEFUN ATTEMPTED-P ...)
+; compiling (DEFUN SUCCESS-P ...)
+; compiling (DEFUN FAIL-P ...)
+
+; /Users/bobak/Downloads/lang/lsp/ai/sw/sf/public/fret/trunk/src/test-object.fasl written
+; compilation finished in 0:00:00
+; compiling file "/Users/bobak/Downloads/lang/lsp/ai/sw/sf/public/fret/trunk/src/test-case.lisp" (written 15 DEC 2008 09:33:03 PM):
+; compiling (IN-PACKAGE #:FRET)
+; compiling (DEFINE-HISTORY-BROWSERS CASE ...)
+; compiling (DEFCONSTANT +TEST-CASE-FUNCTIONS+ ...)
+; compiling (DEFMETHOD INITIALIZE-INSTANCE ...)
+; compiling (DEFUN MAKE-TEST-CASE-INSTANCE ...)
+; compiling (DEFINE-TEST-OBJECT-PREDICATE TEST-CASE)
+; compiling (DEFUN ADD-SUITE-DIRECT-CASE ...)
+; compiling (DEFUN DELETE-SUITE-DIRECT-CASE ...)
+; compiling (DEFUN REMOVE-ROOT-CASE-METHODS ...)
+; file: /Users/bobak/Downloads/lang/lsp/ai/sw/sf/public/fret/trunk/src/test-case.lisp
+; in: DEFUN REMOVE-ROOT-CASE-METHODS
+;     (REMOVE-METHOD FRET::GF-OBJECT METHOD)
+; ==>
+;   FRET::GF-OBJECT
+; 
+; note: deleting unreachable code
+
+;     (LET* ((FRET::GF-OBJECT (THE GENERIC-FUNCTION (SYMBOL-FUNCTION FRET::GF)))
+;            (METHOD (FIND-METHOD FRET::GF-OBJECT 'NIL (LIST FRET::CC) NIL)))
+;       (WHEN METHOD (REMOVE-METHOD FRET::GF-OBJECT METHOD)))
+; 
+; note: deleting unreachable code
+; 
+; note: deleting unreachable code
+; 
+; note: deleting unreachable code
+
+; compiling (DEFMACRO UNDEFCASE ...)
+; compiling (DEFUN NAME-ANONYMOUS-TEST-CASE ...)
+; compiling (DEFGENERIC TEST-CASE-BODY ...)
+; compiling (DEFMACRO DEFCASE ...)
+
+; /Users/bobak/Downloads/lang/lsp/ai/sw/sf/public/fret/trunk/src/test-case.fasl written
+; compilation finished in 0:00:00
+; compiling file "/Users/bobak/Downloads/lang/lsp/ai/sw/sf/public/fret/trunk/src/test-suite.lisp" (written 27 MAR 2009 10:17:00 AM):
+; compiling (IN-PACKAGE #:FRET)
+; compiling (DEFINE-HISTORY-BROWSERS SUITE ...)
+; compiling (DEFVAR +TEST-SUITE-OPTION-KEYWORDS+ ...)
+; compiling (DEFVAR +TEST-SUITE-FUNCTIONS+ ...)
+; compiling (DEFMETHOD INITIALIZE-INSTANCE ...)
+; compiling (DEFUN MAKE-TEST-SUITE-INSTANCE ...)
+; compiling (DEFINE-TEST-OBJECT-PREDICATE TEST-SUITE)
+; compiling (DEFUN DELETE-SUITE-TEST-CASES ...)
+; compiling (DEFUN REMOVE-SUITE-METHODS ...)
+; compiling (DEFMACRO UNDEFSUITE ...)
+; compiling (DEFUN MAKE-SUITE-CLASS-DEFINITION ...)
+; compiling (DEFUN COLLECT-TEST-DEFINITIONS ...)
+; compiling (DEFUN MAKE-TEST-DEFINITION ...)
+; compiling (DEFUN MAKE-TEST-DEFINITIONS ...)
+; compiling (DEFUN FIXTURE-EXECUTOR-METHOD-NAME ...)
+; compiling (DEFUN MAKE-FIXTURE-EXECUTOR ...)
+; compiling (DEFUN PROCESS-FIXTURE-FORMS ...)
+; compiling (DEFUN MAKE-SUITE-SLOT-ACCESSORS ...)
+; compiling (DEFMACRO DEFSUITE ...)
+; compiling (DEFUN GET-SUITE-CASES ...)
+; compiling (DEFUN MAKE-SUITE-ACCESSING-FUNCTION ...)
+
+; /Users/bobak/Downloads/lang/lsp/ai/sw/sf/public/fret/trunk/src/test-suite.fasl written
+; compilation finished in 0:00:00
+; compiling file "/Users/bobak/Downloads/lang/lsp/ai/sw/sf/public/fret/trunk/src/test-script.lisp" (written 15 DEC 2008 09:33:03 PM):
+; compiling (IN-PACKAGE #:FRET)
+; compiling (DEFINE-HISTORY-BROWSERS SCRIPT ...)
+; compiling (DEFINE-TEST-OBJECT-PREDICATE TEST-SCRIPT)
+; compiling (DEFUN MAKE-TEST-SCRIPT-INSTANCE ...)
+; compiling (DEFMETHOD INITIALIZE-INSTANCE ...)
+; compiling (DEFUN MAKE-SCRIPT-STEP-INSTANCE ...)
+; compiling (DEFUN RECORD-TEST-SCRIPT-STEPS-DEPENDENCIES ...)
+; compiling (DEFUN RECORD-TEST-SCRIPT-DEPENDENCIES ...)
+; compiling (DEFMACRO UNDEFSCRIPT ...)
+; compiling (DEFMACRO DEFSCRIPT ...)
+
+; /Users/bobak/Downloads/lang/lsp/ai/sw/sf/public/fret/trunk/src/test-script.fasl written
+; compilation finished in 0:00:00
+; compiling file "/Users/bobak/Downloads/lang/lsp/ai/sw/sf/public/fret/trunk/src/test-runner.lisp" (written 15 DEC 2008 09:33:03 PM):
+; compiling (IN-PACKAGE #:FRET)
+; compiling (DEFINE-HISTORY-BROWSERS RUNNER ...)
+; compiling (DEFMETHOD INITIALIZE-INSTANCE ...)
+; compiling (DEFINE-TEST-OBJECT-PREDICATE TEST-RUNNER)
+; compiling (DEFUN GET-STACK-BACKTRACE ...)
+; compiling (DEFUN TEST-CASE-FAIL ...)
+; compiling (DEFGENERIC RUN-TEST ...)
+; compiling (DEFMETHOD RUN-TEST ...)
+; compiling (DEFMETHOD RUN-TEST ...)
+; compiling (DEFMETHOD RUN-TEST ...)
+; compiling (DEFMETHOD RUN-TEST ...)
+; compiling (DEFMETHOD RUN-TEST ...)
+; compiling (DEFMETHOD RUN-TEST ...)
+; compiling (DEFGENERIC PREPARE-TEST-RUNNER ...)
+; compiling (DEFMETHOD PREPARE-TEST-RUNNER ...)
+; compiling (DEFMETHOD PREPARE-TEST-RUNNER ...)
+; compiling (DEFUN RUN ...)
+
+; /Users/bobak/Downloads/lang/lsp/ai/sw/sf/public/fret/trunk/src/test-runner.fasl written
+; compilation finished in 0:00:01
+; compiling file "/Users/bobak/Downloads/lang/lsp/ai/sw/sf/public/fret/trunk/src/test-result.lisp" (written 07 SEP 2004 09:48:45 AM):
+; compiling (IN-PACKAGE #:FRET)
+; compiling (DEFUN %PRINT-CASE-FAIL ...)
+; compiling (DEFUN PRINT-CASE-RESULT ...)
+; compiling (DEFUN PRINT-CASE-FAIL ...)
+; compiling (DEFGENERIC GATHER-TEST-CASE-SUMMARY ...)
+; compiling (DEFMETHOD GATHER-TEST-CASE-SUMMARY ...)
+; compiling (DEFMETHOD GATHER-TEST-CASE-SUMMARY ...)
+; compiling (DEFUN PRINT-RESULT ...)
+; compiling (DEFMETHOD RUN-TEST ...)
+; compiling (DEFMETHOD RUN-TEST ...)
+
+; /Users/bobak/Downloads/lang/lsp/ai/sw/sf/public/fret/trunk/src/test-result.fasl written
+; compilation finished in 0:00:00
+; compiling file "/Users/bobak/Downloads/lang/lsp/ai/sw/sf/public/fret/trunk/src/storage.lisp" (written 27 MAR 2009 10:17:00 AM):
+; compiling (IN-PACKAGE #:FRET)
+; compiling (DEFVAR *DEFAULT-TEST-STORAGE* ...)
+; compiling (DEFVAR *DEFAULT-TEST-STORAGE-CLASS* ...)
+; compiling (DEFVAR *DEFAULT-TEST-FILE-TYPE* ...)
+; compiling (DEFVAR *DEFAULT-OBJECT-MAPPING* ...)
+; compiling (DEFVAR *TEST-OBJECT-STORAGE* ...)
+; compiling (DEFVAR *TEST-MODIFICATION-TIMES* ...)
+; compiling (DEFVAR *WRITE-TRUENAME* ...)
+; compiling (DEFCLASS TEST-STORAGE ...)
+; compiling (DEFCLASS PERSISTENT-TEST-STORAGE ...)
+; compiling (DEFCLASS STREAM-TEST-STORAGE ...)
+; compiling (DEFCLASS FILE-SYSTEM-TEST-STORAGE ...)
+; compiling (DEFUN COMPUTE-TEST-OBJECT-STORAGE-PATH ...)
+; compiling (DEFMETHOD TEST-STORAGE-ROOT ...)
+; compiling (DEFUN DEFAULT-OBJECT-MAPPING ...)
+; compiling (DEFUN MAKE-TEST-STORAGE ...)
+; compiling (DEFUN DEFINE-TEST-STORAGE ...)
+; compiling (DEFUN GET-OBJECT-STORAGE ...)
+; compiling (DEFUN (SETF GET-OBJECT-STORAGE) ...)
+; compiling (DEFUN REMOVE-OBJECT-STORAGE ...)
+; compiling (DEFUN OBJECT-MODIFIED-TIME ...)
+; compiling (DEFUN (SETF OBJECT-MODIFIED-TIME) ...)
+; compiling (DEFUN OBJECT-COMMIT-TIME ...)
+; compiling (DEFUN (SETF OBJECT-COMMIT-TIME) ...)
+; compiling (DEFUN OBJECT-MODIFIED-P ...)
+; compiling (DEFGENERIC WRITE-TEST-TO-STORAGE ...)
+; compiling (DEFMETHOD WRITE-TEST-TO-STORAGE ...)
+; compiling (DEFMETHOD WRITE-TEST-TO-STORAGE ...)
+; compiling (DEFMETHOD WRITE-TEST-TO-STORAGE ...)
+; compiling (DEFUN WRITE-SUITE-TEST-CASE-DEFINITIONS ...)
+; compiling (DEFMETHOD WRITE-TEST-TO-STORAGE ...)
+; compiling (DEFMETHOD WRITE-TEST-TO-STORAGE ...)
+; compiling (DEFMETHOD WRITE-TEST-TO-STORAGE ...)
+; compiling (DEFMETHOD WRITE-TEST-TO-STORAGE ...)
+; compiling (DEFMETHOD WRITE-TEST-TO-STORAGE ...)
+; compiling (DEFMETHOD WRITE-TEST-TO-STORAGE ...)
+; compiling (DEFMETHOD WRITE-TEST-TO-STORAGE ...)
+; compiling (DEFMETHOD WRITE-TEST-TO-STORAGE ...)
+; compiling (DEFUN WRITE-TEST-SUBTREE ...)
+; compiling (DEFUN WRITE-TEST ...)
+; compiling (DEFGENERIC LOAD-TEST-FROM-STORAGE ...)
+; compiling (DEFMETHOD LOAD-TEST-FROM-STORAGE ...)
+; compiling (DEFMETHOD LOAD-TEST-FROM-STORAGE ...)
+; compiling (DEFMETHOD LOAD-TEST-FROM-STORAGE ...)
+; compiling (DEFMETHOD LOAD-TEST-FROM-STORAGE ...)
+; compiling (DEFMETHOD LOAD-TEST-FROM-STORAGE ...)
+; compiling (DEFMETHOD LOAD-TEST-FROM-STORAGE ...)
+; compiling (DEFMETHOD LOAD-TEST-FROM-STORAGE ...)
+; compiling (DEFUN LOAD-TEST-RECURSIVE ...)
+; compiling (DEFUN LOAD-TEST-NONRECURSIVE ...)
+; compiling (DEFUN LOAD-TEST ...)
+; compiling (DEFMETHOD DELETE-TEST-FROM-STORAGE ...)
+; compiling (DEFMETHOD DELETE-TEST-FROM-STORAGE ...)
+; compiling (DEFMETHOD DELETE-TEST-FROM-STORAGE ...)
+; compiling (DEFGENERIC %REMOVE-TEST-STORAGE ...)
+; compiling (DEFMETHOD %REMOVE-TEST-STORAGE ...)
+; compiling (DEFUN COLLECT-DEFAULT-STORES ...)
+; compiling (DEFUN REMOVE-TEST-STORAGE ...)
+; compiling (DEFGENERIC UPDATE-TEST-MODIFIED ...)
+; compiling (DEFMETHOD UPDATE-TEST-MODIFIED ...)
+; compiling (DEFMETHOD UPDATE-TEST-MODIFIED ...)
+; compiling (DEFUN STORAGE-COMMIT ...)
+; compiling (DEFUN STORAGE-COMMIT-ALL ...)
+; compiling (DEFUN STORAGE-REVERT ...)
+; compiling (DEFUN STORAGE-REVERT-ALL ...)
+; compiling (DEFUN STORAGE-STATUS ...)
+; compiling (DEFUN TEST-STORAGE-HOOK-LISTENER ...)
+; compiling (HOOK-ADD (QUOTE TEST-DEFINITION-HOOK) ...)
+; compiling (HOOK-ADD (QUOTE TEST-DELETION-HOOK) ...)
+
+; /Users/bobak/Downloads/lang/lsp/ai/sw/sf/public/fret/trunk/src/storage.fasl written
+; compilation finished in 0:00:00
+; compiling file "/Users/bobak/Downloads/lang/lsp/ai/sw/sf/public/fret/trunk/src/modify.lisp" (written 20 SEP 2004 11:05:32 PM):
+; compiling (IN-PACKAGE #:FRET)
+; compiling (DEFUN SUBST-SUITE-SUPERTYPE-IN-DEFSUITE ...)
+; compiling (DEFUN ADD-SUITE-SUPERTYPE-IN-DEFSUITE ...)
+; compiling (DEFUN REMOVE-SUITE-SUPERTYPE-IN-DEFSUITE ...)
+; compiling (DEFUN SET-SUITE-SUPERTYPES-IN-DEFSUITE ...)
+; compiling (DEFUN SUBST-SUITE-NAME-IN-DEFSUITE ...)
+; compiling (DEFUN SUBST-SUITE-NAME-IN-DEFCASE ...)
+; compiling (DEFUN SET-SUITE-FIXTURE-IN-DEFSUITE ...)
+; compiling (DEFUN FINAL-MODIFY-WITHOUT-EXECUTE-BODY ...)
+; compiling (DEFUN FINAL-MODIFY-WITH-EXECUTE-BODY ...)
+; compiling (DEFUN MAKE-WITH-MODIFY-FINAL-CLAUSE ...)
+; compiling (DEFMACRO WITH-MODIFY-SUITE-AND-CASES ...)
+; compiling (DEFMACRO WITH-MODIFY-SUITE ...)
+; compiling (DEFUN SET-SUITE-SUPERTYPES ...)
+; compiling (DEFUN REMOVE-SUITE-SUPERTYPE ...)
+; compiling (DEFUN ADD-SUITE-SUPERTYPE ...)
+; compiling (DEFUN SUBST-SUITE-SUPERTYPE ...)
+; compiling (DEFUN COPY-SUITE ...)
+; compiling (DEFUN RENAME-SUITE ...)
+
+; /Users/bobak/Downloads/lang/lsp/ai/sw/sf/public/fret/trunk/src/modify.fasl written
+; compilation finished in 0:00:00
+; compiling file "/Users/bobak/Downloads/lang/lsp/ai/sw/sf/public/fret/trunk/src/asdf-interface.lisp" (written 15 DEC 2008 09:33:03 PM):
+; compiling (IN-PACKAGE #:FRET)
+; compiling (DEFVAR *DEFAULT-COMPONENT-TEST-STORAGE* ...)
+; compiling (DEFCLASS COMPONENT ...)
+; compiling (DEFCLASS MODULE ...)
+; compiling (DEFCLASS SYSTEM ...)
+; compiling (DEFUN SETUP-COMPONENT-TEST-STORAGE ...)
+; compiling (DEFMETHOD SHARED-INITIALIZE ...)
+; compiling (DEFCLASS FRET-OP ...)
+; compiling (DEFMETHOD ASDF:OPERATION-DONE-P ...)
+; compiling (DEFMETHOD ASDF:PERFORM ...)
+; compiling (DEFMETHOD ASDF:PERFORM ...)
+; compiling (DEFUN TEST-FRET ...)
+
+; /Users/bobak/Downloads/lang/lsp/ai/sw/sf/public/fret/trunk/src/asdf-interface.fasl written
+; compilation finished in 0:00:00
+; 
+; compilation unit finished
+;   printed 5 notes
+NIL
+USER(2): (ex)
+
+"byE" @<98 ucsf: /fret/trunk> 

@@ -1,0 +1,246 @@
+2009-03-27  Sunil Mishra  <smishra@sfmishras.com>
+
+	Handled bugs related to persistence and redefinition, in noting
+	when a test is redefined in its storage, and doing the right thing
+	when fixtures are dropped.
+	
+	* src/test-suite.lisp (make-fixture-executor): Introduce test in
+	fixture generation for whether a body had been defined for the
+	fixture at all. We're basically changing the manner in which
+	fixtures are processed. We will always generate fixture functions
+	now, but the fixtures may have degenerate definitions. This is
+	required to handle redefinition where a fixture previously present
+	is now removed.
+	(process-fixture-forms): Remove test for presence of fixture when
+	fixtures are being executed.
+
+	* src/storage.lisp (test-storage-hook-listener): If a test object
+	doesn't have a storage defined, set the storage to the default. We
+	were previously not setting the storage in the test object, which
+	was causing problems in detecting when the test's definition in
+	its store was updated.
+
+2008-12-15  Sunil Mishra  <smishra@sfmishras.com>
+
+	Various fixes related to bugs uncovered in Clozure CL having to do
+	with class allocated slots, and find-class. Also defined
+	get-stack-backtrace for Clozure CL.
+	
+	* src/test-suite.lisp (delete-suite-test-cases): Coerce the
+	returned name to a class. Otherwise class-name on a symbol does
+	not work in all implementations.
+
+	* src/test-script.lisp (defscript): Use methods that return
+	constant values instead of class allocation slots. Class
+	allocation slots are defined to keep their current value on
+	redefinition, and at least in Clozure CL the class allocated slot
+	values stick around even if the class is redefined without the
+	slot in question.
+
+	* src/test-runner.lisp (get-stack-backtrace): Defined an
+	implementation for Clozure CL.
+
+	* src/test-case.lisp (undefcase): Warn if there isn't a case with
+	the given name.
+	(defcase): Use methods that return constant values instead of
+	class allocation slots. Class allocation slots are defined to keep
+	their current value on redefinition, and at least in Clozure CL
+	the class allocated slot values stick around even if the class is
+	redefined without the slot in question.
+
+2008-12-12  Sunil Mishra  <smishra@sfmishras.com>
+
+	Deal correctly with test suites that depend on other test suites.
+	
+	* src/asdf-interface.lisp (fret-op): Added tested slot.
+	((asdf:perform :around (fret-op component))): Added.
+	((asdf:perform (fret-op component))): Execute the operation on the
+	dependencies of the current component.
+
+2007-10-07  Sunil Mishra  <smishra@sfmishras.com> <Version 0.4>
+
+	Updated documentation, added fret:test-fret, in preparation for
+	0.4 release.
+	
+	* fret.asd (fret): Added additional system properties.
+	
+	* README: Updated.
+
+	* TODO: Updated.
+
+	* docs/index.html: Updated with reference to JUnit, fret:test-fret.
+
+	* src/package.lisp (#:fret): Exported test-fret.
+
+	* src/asdf-interface.lisp (test-fret): Added.
+
+2007-10-06  Sunil Mishra  <smishra@sfmishras.com>
+
+	Now working with SBCL 1.0.10 on an intel mac.
+	
+	* test-support/framework-tests-support.lisp
+	(*framework-tests-dir*): Previously was not using
+	*compile-file-truename* even though the eval-when required the
+	merge-pathnames to be executed at compile time.
+
+	* src/test-framework.lisp (get-class-precedence-list): SBCL also
+	requires ensuring the class is finalized before fetching its
+	precedence list.
+
+2007-10-05  Sunil Mishra  <smishra@sfmishras.com>
+
+	Verified that fret works on openmcl.
+	
+	* src/test-framework.lisp (get-function-arguments): Implemented
+	for openmcl.
+
+2007-09-30  Sunil Mishra  <smishra@sfmishras.com>
+
+	Implement fret-op, and make other changes in fret for it to work
+	correctly with asdf.
+	
+	* test/fret-test-script.lisp: Renamed from framework-tests.lisp,
+	since the top level test object is fret-test-script.
+
+	* fret-test.asd (fret-test): Renamed :test-script to :test-name.
+
+	* src/asdf-interface.lisp (component): Generalized the role of
+	slot test-script, renamed it test-name.
+	(fret-op): Added slots break-on-errors and force-reload.
+
+	* src/storage.lisp
+	((write-test-to-storage :around (test-script file-system-test-storage t)))
+	((write-test-to-storage :around (test-script stream-test-storage t)))
+	((write-test-to-storage (test-script stream-test-storage t))):
+	Implemented missing methods.
+	((load-test-from-storage :around (test-object file-system-test-storage t))): 
+	Implemented to filter out loads for test objects that may not have
+	a canonical storage. Requires *load-start-time* to be set in
+	load-test.
+	(load-test): Bind *load-start-time*.
+	((update-test-modified (test-object file-system-test-storage))):
+	Was setting the modification time for the test storage, now
+	changed to the test object.
+
+	* src/test-framework.lisp: Comments at the end of the file now
+	have an updated set of commands to run the test script.
+
+2007-09-26  Sunil Mishra  <smishra@sfmishras.com>
+
+	Eliminated virtual-fret-file, turns out to be unnecessary with the
+	use of fret-op.
+	
+	* src/package.lisp (#:fret): Exported fret-op.
+
+	* src/asdf-interface.lisp ((shared-instance :after (component ...))):
+	Correctly named as shared-initialize. Also require that
+	asdf::relative-pathname is bound before setting up storage.
+	(virtual-fret-file)
+	((setf asdf:module-components) :after (t module)))
+	((asdf:perform (asdf:compile-op)))
+	((asdf:perform (asdf:load-op)))
+	((asdf:operation-done-p (asdf:compile-op virtual-fret-file)))
+	((asdf:operation-done-p (asdf:load-op virtual-fret-file))):
+	Removed, virtual-fret-file turns out to be unnecessary.
+	(fret-op, (asdf:operation-done-p (fret-op component))): Added.
+	
+2007-09-26  Sunil Mishra  <smishra@sfmishras.com>
+
+	Implemented a skeletal asdf interface that allows declaration and
+	loading of fret testable systems.
+	
+	* fret-test.asd: Added.
+
+	* fret.asd (fret): Decommented file asdf-interface.
+
+	* src/asdf-interface.lisp (component, module, system)
+	(virtual-fret-file, setup-component-test-storage)
+	((shared-instance :after (component ...)))
+	(((setf asdf:module-components) :after (t module)))
+	((asdf:perform (asdf:compile-op)))
+	((asdf:perform (asdf:load-op)))
+	((asdf:operation-done-p (asdf:compile-op virtual-fret-file)))
+	((asdf:operation-done-p (asdf:load-op virtual-fret-file))): Added.
+	(asdf-test-storage): Removed as unnecessary.
+	(fret-op): Commented out for now.
+
+	* src/package.lisp (#:fret): Exported component, module, system.
+
+	* test/framework-tests.lisp (define-stack-test-suite)
+	(define-stack-consistency-suite, undefine-stack-test-suite)
+	(undefine-stack-consistency-suite): Moved to
+	framework-tests-support.lisp.
+
+	* test-support/framework-tests-support.lisp: Added. 
+
+2007-01-24  Sunil Mishra  <smishra@sfmishras.com>
+
+	* src/test-object.lisp (get-test-object-prototype): 
+	* src/defs.lisp (update-instance-for-redefined-class): Moved the
+	handler-bind for unsupplied a missing slot value to
+	update-instance-for-redefined-class. In SBCL, slot values are
+	re-initialized update-instance-for-redefined-class is called for a
+	class being re-initialized due to class redefinition. If the
+	default initialization for a slot is to signal an error,
+	initializing that slot in the class's prototype will produce an
+	error where there is no way to control such an error. We therefore
+	put an error handler in update-instance-for-redefined-class.
+
+2007-01-23  Sunil Mishra  <smishra@sfmishras.com>
+
+	* fret.asd ("SB-INTROSPECT"): Added require for sbcl.
+
+2007-01-20  Sunil Mishra  <smishra@sfmishras.com>
+
+	* fret.asd:
+	* src/test-framework.lisp:
+	* src/package.lisp:
+	* src/test-output.lisp:
+	* src/test-object.lisp:
+	* src/test-suite.lisp:
+	* src/test-case.lisp: Updated copyright information.
+
+2007-01-20  Sunil Mishra  <smishra@sfmishras.com>
+
+	* src/test-framework.lisp (slot-required): Added condition for
+	unsupplied required slots.
+	(error-required): Changed to a continuable error that signals
+	slot-required.
+	
+	* src/test-object.lisp (get-test-object-prototype): Added handler
+	bind to continue from slot-required errors if the error is signaled
+	while retrieving the class prototype.
+
+2007-01-19  Sunil Mishra  <smishra@sfmishras.com>
+
+	* src/test-case.lisp (defcase): :documentation option now is not
+	provided in the expansion when there isn't documentation in the
+	case definition.
+
+2007-01-18  Sunil Mishra  <smishra@sfmishras.com>
+
+	Updates for sbcl compatibility.
+	
+	* fret.asd (fret): Defined a module for directory src, rather than
+	declaring a path for the whole system definition. Otherwise
+	asdf-install on sbcl doesn't work right.
+
+	* src/test-framework.lisp (+suite-var+, +ensure-body-var+,
+	+arglist-keywords+):
+	* src/test-suite.lisp (+test-suite-option-keywords+,
+	+test-suite-functions+):
+	* src/test-output.lisp (+verbosity-levels+): 
+	Changed to defvar because sbcl is really finicky about constant
+	equality.
+
+	* src/test-framework.lisp (get-function-arguments): Added an
+	implementation for sbcl.
+
+	* src/package.lisp (top-level): rename-package on SB-PCL called
+	with sb-ext:with-unlocked-packages.
+
+2006-09-07  Sunil Mishra  <smishra@sfmishras.com>
+
+	* src/test-suite.lisp (make-fixture-executor): Fixture execution
+	was being keyed on the wrong value. Now it correctly calls the
+	next method when the fixture is defined.

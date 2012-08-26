@@ -1,0 +1,131 @@
+
+=========   ---------------------------
+ XL-WIKI    Wiki Engine for Common Lisp
+=========   ---------------------------
+
+XL-WIKI is a fork off CL-WIKI to support ease of extension of the core
+wiki. The goal is to implement a semantic wiki on top of the base wiki
+framework.
+
+http://www.sfmishras.com/smishra/xl-wiki/
+
+
+Quick start
+===========
+
+        (asdf:operate 'asdf:load-op :xl-wiki)
+        (wiki:start)
+
+Then direct your browser to http://localhost:5757/
+
+XL-WIKI uses Hunchentoot <http://weitz.de/hunchentoot/>. The example above
+runs it without any front-end. But you can install it for use with Apache
+and mod_lisp, too. See Hunchentoot's documentation.
+
+Syntax highlighting via lisppaste's colorizing code
+<http://common-lisp.net/project/lisppaste/>. See colorize-README.
+
+
+Config
+======
+
+By default, XL-WIKI looks for "wiki.conf" in the software installation
+directory.
+
+The following parameters expressed as a plist can be set with the config
+file:
+
+Section: base
+-------------
+directory       Base directory for the wiki data, like pages, etc.
+
+port            TCP/IP port XL-WIKI will listen to. Attention: listens
+                on every interface.
+
+template-directory      Base directory for templates.
+
+page-list       List of title-link pairs with links that get displayed at
+                the bottom of every page. For example:
+		         page-list ((title "Home"    link "Home")
+                	 	    (title "About"   link "About")
+				    (title "Contact" link "Contact"))
+
+reverse-proxy   Indicates if XL-WIKI runs behind a reverse proxy.
+                Default is NIL. Set it to t when behind a proxy.
+
+home-page       Default page when root directory of the site is accessed.
+
+edit-textarea-size      Plist of size of edit textarea.
+                        Default is (:rows 25 :cols 80).
+
+
+Textformatting
+==============
+
+[[Page]]                        ==> Generates a link to named page.
+[[Page|Text]]                   ==> Generates a link to named page
+                                    and links Text.
+[http://www.somepage.example/]  ==> Inserts external link
+''text''                        ==> emphasize text (<em>text</em>) 
+                                    -- on most browsers italic
+'''text'''                      ==> stronger emphasize text
+                                    (<strong>text</strong>)
+                                    -- on most browsers bold
+<small>text</small>             ==> text in small font
+<big>text</big>                 ==> text in big font
+<sub>x</sub>                    ==> subscripting x
+<sup>x</sup>                    ==> superscripting x
+<s>text</s>                     ==> strike out text
+<u>text</u>                     ==> underline text
+<del>text</del>                 ==> Mark text as deleted
+<ins>text</ins>                 ==> Mark text as inserted
+<br> or <br/>                   ==> Start a new line
+* Item                          ==> List item
+
+= Foo =                         ==> Level 1 header (discouraged)
+
+== Foo ==                       ==> Level 2 header
+
+...                             ...
+
+====== Foo ======               ==> Level 6 header
+
+----                            ==> Horizontal divider
+
+<source> ... </source>          ==> Sourcecode snippet
+                                    <pre class="code"> ... </pre>
+
+<source lang="LANG"> ... </source>
+                                ==> Sourcecode snippet, colorized for the
+                                    named language LANG.
+                                    Snippet is surrounded by
+                                    <div class="code"> ... </div>
+                                    LANG must be one of "Basic Lisp", "Scheme",
+                                    "Emacs Lisp", "Common Lisp", "C", "C++",
+                                    "Java", "Objective C", "Erlang", "Python",
+                                    or "Haskell"
+
+<nowiki> ... </nowiki>          ==> Excludes a portion of the text from code
+                                    converting. Useful if you want to show
+                                    the formatting codes on a help page, etc.
+
+<!-- comment -->                ==> Removes everything between <!-- and -->.
+                                    Allows commenting.
+
+
+Philosophy
+==========
+
+The term "wiki wiki" and its meaning are well known. Quick. Quick to use
+and quick to program. The first wiki was written in 30 lines of Perl
+code.
+
+
+Thanks
+======
+Stefan Scholl for providing the initial CL-WIKI implementation.
+Kevin Griffin for tests with different CL implementations and
+beeing an early adopter.
+Ian Clelland for ideas, patches, etc.
+Vehbi Sinan Tunalioglu for ideas, patches, etc.
+Jens Teich reviving development, ideas, patches, etc.

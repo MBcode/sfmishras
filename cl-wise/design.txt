@@ -1,0 +1,45 @@
+Here we describe the semantics that can be expressed in CL-Wiki, and the
+syntax that will provide those semantics. This will lead to an abstract
+design for the wiki.
+
+Desired Semantics
+
+We wish to clearly distinguish classes and individuals, and keep them
+distinct from documents. Towards this end, we propose the wiki have
+different namespaces for documents, classes, instances, and properties.
+
+A document may or may not be semantically annotated. Any document that's
+semantically annotated should have a primary class or individual (which we
+shall together call a concept). Say the document has a link to another
+target document. If the link is typed, and the target document also has a
+primary concept, we can produce a triple corresponding to the link. This is
+very similar to how links are described in semantic mediawiki, and a
+variety of other wikis.
+
+Where we differ is that we can introduce nested topics within a document at
+any point. The outer topic must have a relation defined to the inner one,
+thus again giving us a triple. Any links that occur within the scope of the
+inner topic are related to that topic. However, topics with individuals as
+their target cannot have any nested topics.
+
+It is also possible to have a document without a primary topic, but with
+topics declared within its scope. This implies that the document cannot act
+as the target of a semantic link, but can produce triples nevertheless.
+
+We thus have the following combinations of sources for the subject and
+object of each triple. We can also have specific interpretations for each
+of those combinations:
+
+Subject | Object | Interpretation
+--------+--------+------------------------------------------
+Class   | Class  | Template slot with a type restriction
+Class   | Ind.   | Template slot with a value
+Ind.    | Class  | Own slot linked to an anonymous instance
+Ind.    | Ind.   | Own slot with a direct value
+
+Properties can either have literal values, or other concepts as values. The
+nature of the property must be declared in its document. A property cannot
+appear as a subtopic in any page. A page with a property as its primary
+topic takes any other typed link as a direct value. This is essential to
+support declaring the domain and range, for example.
+
